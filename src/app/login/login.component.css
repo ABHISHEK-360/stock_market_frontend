@@ -1,0 +1,19 @@
+.login-card {
+  margin-top: 10%;
+  margin-left: 35%;
+  text-align: center;
+  width: 30%;
+}
+
+.login-form {
+  width: 100%;
+  align-self: center;
+}
+
+.login-table {
+  width: 100%;
+}
+
+.username-field {
+  width: 100%
+}

@@ -1,0 +1,51 @@
+.full-width {
+  width: 100%;
+}
+
+.top-container {
+  min-height: 100vh;
+  margin: 10;
+  padding: 0;
+  z-index: 3;
+}
+
+.app-bar {
+  background-color: var(--primary-color);
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  min-width: 20%;
+  font-size: 22px;
+  text-align: center;
+  color: var(--app-name);
+}
+
+.header-nav {
+  min-width: 40%;
+}
+
+.header-user {
+  min-width: 15%;
+}
+
+.route-text {
+  color: #ffffff;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.reg-font {
+  font-size: 16px;
+}
+
+.gen-button {
+  font-size: 14px;
+  margin: 5px;
+  min-height: 30px;
+}

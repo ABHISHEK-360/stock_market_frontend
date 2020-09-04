@@ -46,3 +46,32 @@
 .table-data {
   border-top: 1px solid grey;
 }
+
+.compare-container {
+  display: flex;
+}
+
+.compare-select {
+  flex: 1;
+  margin: 5px;
+}
+
+.compare-form {
+  padding: 5px;
+  border: 2px solid grey;
+}
+
+.sector-form {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.button {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.compare-charts {
+  flex: 2;
+  margin: 5px;
+}

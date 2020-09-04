@@ -1,7 +1,9 @@
 import {NgModule} from "@angular/core";
 import { CommonModule } from '@angular/common';
 
-import { MatTabsModule } from '@angular/material/tabs'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,10 +15,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import {
+  MatNativeDateModule,
+} from '@angular/material/core';
 
 @NgModule({
   imports: [
+    MatSelectModule,
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
@@ -32,6 +37,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   ],
 
   exports: [
+     MatNativeDateModule,
+     MatDatepickerModule,
+     MatSelectModule,
      CommonModule,
      MatToolbarModule,
      MatButtonModule,

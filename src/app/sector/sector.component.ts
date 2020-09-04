@@ -16,6 +16,10 @@ export class SectorComponent implements OnInit {
   sectors : Sector[] = [];
   companies : Company[] = [];
   selectedSector: Sector = new Sector();
+  compareSector1;
+  compareSector2;
+  startDate;
+  endDate;
   show: boolean = true;
 
   constructor(private sectorService: SectorService ) {

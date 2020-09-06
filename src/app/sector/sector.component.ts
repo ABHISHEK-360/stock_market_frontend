@@ -76,6 +76,9 @@ export class SectorComponent implements OnInit {
   fetchSectorCompare(id1, id2, startDate, endDate) {
     const sDate = Utils.convertDate(startDate);
     const eDate = Utils.convertDate(endDate);
+    this.avgChartData = [];
+    this.highChartData = [];
+    this.lowChartData = [];
 
     this.sectorService.fetchSectorWithPrices(id1, sDate, eDate).subscribe(data => {
       this.compareSectorData1.sectorId = data.sectorId;
@@ -94,13 +97,13 @@ export class SectorComponent implements OnInit {
 
       var highChart = {
         data: [data.highestHigh.stockPrice],
-        label: "Sector 1 -" + data.highestHigh.companyName
+        label: "Sector 1 - " + data.highestHigh.companyName
       }
       this.highChartData.push(highChart);
 
       var lowChart = {
-        data: [data.highestHigh.stockPrice],
-        label: "Sector 1 -" + data.highestHigh.companyName
+        data: [data.lowestLow.stockPrice],
+        label: "Sector 1 - " + data.lowestLow.companyName
       }
       this.lowChartData.push(lowChart);
       this.showGraph = true;
@@ -116,19 +119,19 @@ export class SectorComponent implements OnInit {
       this.compareSectorData2.lowestLow = data.lowestLow;
       var avgChart = {
         data: [data.highestAvg.stockPrice],
-        label: "Sector 2 -" + data.highestAvg.companyName
+        label: "Sector 2 - " + data.highestAvg.companyName
       }
       this.avgChartData.push(avgChart);
 
       var highChart = {
         data: [data.highestHigh.stockPrice],
-        label: "Sector 1 -" + data.highestHigh.companyName
+        label: "Sector 2 - " + data.highestHigh.companyName
       }
       this.highChartData.push(highChart);
 
       var lowChart = {
         data: [data.highestHigh.stockPrice],
-        label: "Sector 1 -" + data.highestHigh.companyName
+        label: "Sector 2 - " + data.highestHigh.companyName
       }
       this.lowChartData.push(lowChart);
       this.showGraph = true;

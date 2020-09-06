@@ -71,7 +71,26 @@
   background-color: var(--primary-color);
 }
 
+.center{
+  text-align: center;
+}
+
 .compare-charts {
   flex: 2;
   margin: 5px;
+}
+
+.sector-name {
+  display: flex;
+}
+
+.sector-details {
+  flex: 1;
+}
+
+.compare-graph {
+  flex: 1;
+  margin: 2px;
+  padding: 2px;
+  border: 1px solid grey;
 }

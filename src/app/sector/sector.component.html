@@ -74,7 +74,7 @@
                   <mat-select [(value)]="compareSector1">
                     <mat-option
                       *ngFor="let sector of sectors"
-                      value= {sector.sectorId}
+                      value= "{{sector.sectorId}}"
                     >
                       {{sector.sectorName}}
                     </mat-option>
@@ -85,7 +85,7 @@
                   <mat-select [(value)]="compareSector2">
                     <mat-option
                       *ngFor="let sector of sectors"
-                      value= {sector.sectorId}
+                      value= "{{sector.sectorId}}"
                     >
                       {{sector.sectorName}}
                     </mat-option>
@@ -96,26 +96,73 @@
               <div class="sector-form">
                 <mat-form-field class = 'full-width' appearance="fill">
                   <mat-label>Start date</mat-label>
-                  <input matInput [matDatepicker]="startDate">
+                  <input matInput [matDatepicker]="startDate" (dateChange)="onStartDateChange($event)">
                   <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                   <mat-datepicker #startDate></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class = 'full-width' appearance="fill">
                   <mat-label>End date</mat-label>
-                  <input matInput [matDatepicker]="endDate">
+                  <input matInput [matDatepicker]="endDate" (dateChange)="onEndDateChange($event)">
                   <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                   <mat-datepicker #endDate></mat-datepicker>
                 </mat-form-field>
               </div>
               <div class = 'full-width'>
-                <button mat-raised-button class = 'button full-width'>
+                <button
+                  mat-raised-button
+                  class = 'button full-width'
+                  (click) = "handleCompareSector()"
+                >
                    Compare
                 </button>
               </div>
             </div>
           </div>
-          <div class = 'compare-charts'>
+          <div *ngIf = 'showGraph' class = 'compare-charts'>
             <h2 class = "title-text">Comparison Charts</h2>
+            <div class="sector-name">
+              <div class="sector-details">
+                <h3 class = "center">Sector 1</h3>
+                <p>{{compareSectorData1.sectorName}}</p>
+                <p>{{compareSectorData1.brief}}</p>
+                <p>Registered Companies: {{compareSectorData1.noOfCompanies}}</p>
+              </div>
+              <div class="sector-details">
+                <h3 class = "center">Sector 2</h3>
+                <p>{{compareSectorData2.sectorName}}</p>
+                <p>{{compareSectorData2.brief}}</p>
+                <p>Registered Companies: {{compareSectorData2.noOfCompanies}}</p>
+              </div>
+            </div>
+            <div class="sector-name">
+              <div class="compare-graph">
+                <canvas baseChart
+                  [datasets]="avgChartData"
+                  [labels]= "avgChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+                </canvas>
+              </div>
+              <div class="compare-graph">
+                <canvas baseChart
+                  [datasets]="highChartData"
+                  [labels]= "highChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+                </canvas>
+              </div>
+            </div>
+            <div class="compare-graph">
+              <canvas baseChart
+                [datasets]="lowChartData"
+                [labels]= "lowChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+              </canvas>
+            </div>
           </div>
         </div>
       </mat-tab>

@@ -17,4 +17,13 @@ export class SectorService {
   fetchSectorCompanies(id): Observable<any> {
     return this.http.get(this.URL+"sector/"+id);
   }
+
+  fetchSectorWithPrices(id, startDate, endDate): Observable<any> {
+    const body = {
+      startDate,
+      endDate,
+    }
+
+    return this.http.post(this.URL+"sector/price/"+id, body);
+  }
 }
